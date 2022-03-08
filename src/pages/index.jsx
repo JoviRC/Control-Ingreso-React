@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import { breakpoints } from "../lib/styledBreakPoints";
 import { flexDirection, width, height, padding } from "styled-system";
 
 const WebPage = () => {
@@ -11,6 +10,7 @@ const WebPage = () => {
             setCurrentWidth(window.innerWidth);
         });
     }, [currentWidth]);
+    
     const Container = styled.div`
         width: ${currentWidth > 600 ? "600px" : "100%"};
         margin-top: 70px;

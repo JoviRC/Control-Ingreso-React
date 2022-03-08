@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { BiMoon, BiSun } from "react-icons/bi";
 
