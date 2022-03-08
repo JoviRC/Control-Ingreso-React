@@ -1,17 +1,34 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, createRef, useRef } from "react";
 import styled from "styled-components";
 import { flexDirection, width, height, padding } from "styled-system";
-
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 const WebPage = () => {
+    const heightRef = useRef();
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
-
+    const [currentHeight, setCurrentHeight] = useState(window.innerHeight);
+    const [contentHeight, setContentHeight] = useState(undefined);
     useEffect(() => {
         window.addEventListener("resize", () => {
             setCurrentWidth(window.innerWidth);
         });
     }, [currentWidth]);
-    
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setCurrentHeight(window.innerHeight);
+        });
+    }, [currentHeight]);
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            if (contentHeight > currentHeight) {
+                setContentHeight(heightRef.current.offsetHeight);
+                console.log(heightRef.current.offsetHeight);
+            }
+        });
+    }, []);
+
     const Container = styled.div`
+        height: ${currentHeight > contentHeight ? "100vh" : "auto"};
         width: ${currentWidth > 600 ? "600px" : "100%"};
         margin-top: 70px;
         background-color: ${(props) => props.theme.color.primary};
@@ -66,9 +83,41 @@ const WebPage = () => {
         color: ${(props) => props.theme.color.secondary};
         text-align: justify;
     `;
+    const ButtonPortfolio = styled.div`
+        display: flex;
+        padding: 0 10px;
+        align-items: center;
+        justify-content: space-around;
+        height: 50px;
+        width: 120px;
+        background-color: ${(props) => props.theme.color.buttonBg};
+        color: ${(props) => props.theme.color.primary};
+        font-family: Ruluko;
+        border-radius: 10px;
+        cursor: pointer;
+    `;
+    const LayoutBio = styled.div`
+        display: flex;
+        margin: ${currentWidth > 600 ? "10px auto 10px 30px" : "10px auto"};
+        text-align: justify;
+        flex-direction: row;
+        justify-content: space-around;
+    `;
+    const AgeBio = styled.h1`
+        font-size: ${currentWidth > 600 ? "20px" : "24px"};
+        font-family: Ruluko;
+        color: ${(props) => props.theme.color.secondary};
+        margin: 0 10px;
+    `;
+    const ContentBio = styled.p`
+        font-size: ${currentWidth > 600 ? "16px" : "20px"};
+        font-family: Ruluko;
+        color: ${(props) => props.theme.color.secondary};
+        margin: 0 10px;
+    `;
 
     return (
-        <Container>
+        <Container ref={heightRef}>
             <Section padding="40px 0 0 0" flexDirection={currentWidth > 600 ? "row" : "column"}>
                 <Box width="auto" height="auto" flexDirection="column">
                     <NameTitle>Johan Rivera</NameTitle>
@@ -94,6 +143,33 @@ const WebPage = () => {
                         desarrollo Web.
                     </Paragraph>
                 </Box>
+            </Section>
+            <Section padding="10px">
+                <Link to="/Trabajos" style={{ textDecoration: "none" }}>
+                    <ButtonPortfolio>
+                        Portafolio <MdKeyboardArrowRight />
+                    </ButtonPortfolio>
+                </Link>
+            </Section>
+            <Section padding="30px" flexDirection="column">
+                <Titule>Bibliografia</Titule>
+                <br />
+                <LayoutBio>
+                    <AgeBio>1995</AgeBio>
+                    <ContentBio>
+                        Nací y me crie en la ciudad de Ovalle Cuarta Región de Chile
+                    </ContentBio>
+                </LayoutBio>
+                <LayoutBio>
+                    <AgeBio>2021</AgeBio>
+                    <ContentBio>
+                        Titulado de Ingeniero en Informática de la Universidad Tecnológica INACAP
+                    </ContentBio>
+                </LayoutBio>
+                <LayoutBio>
+                    <AgeBio>2022</AgeBio>
+                    <ContentBio>Puesto administrativo, Hospital Provincial Ovalle</ContentBio>
+                </LayoutBio>
             </Section>
         </Container>
     );
