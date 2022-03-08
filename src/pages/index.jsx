@@ -90,7 +90,7 @@ const WebPage = () => {
                         ciencia y el anime, poseeo un titulo de Ingeniero en informática en la
                         Universidad Tecnológica INACAP y actualmente trabajo en el Hospital
                         Provincial de Ovalle. Me considero una persona responsable, autodidacta,
-                        comprometida y ademas con muchas ganas de trabajar en un equipo de
+                        comprometida y además con muchas ganas de trabajar en un equipo de
                         desarrollo Web.
                     </Paragraph>
                 </Box>
