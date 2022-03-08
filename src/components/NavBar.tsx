@@ -1,10 +1,11 @@
 import { memo, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { lightTheme, darkTheme } from "../lib/Theme";
-import { breakpoints } from "../lib/styledBreakPoints";
 import { ButtonDark, ButtonLight } from "../components/ButtonTheme";
+import { Link } from "react-router-dom";
+import { breakpoints } from "../lib/styledBreakPoints";
 import { GoMarkGithub } from "react-icons/go";
+import { motion } from "framer-motion";
+import styled from "styled-components";
 import ButtonNav from "./ButtonNav";
 
 const Nav = styled.nav`
@@ -96,10 +97,11 @@ function NavBar(props: any) {
     const [windowsWidth, setWindowsWidth] = useState(window.innerWidth);
     const [press, setPress] = useState(false);
 
-    window.addEventListener("resize", () => {
-        setWindowsWidth(window.innerWidth);
-    });
-
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setWindowsWidth(window.innerWidth);
+        });
+    }, [windowsWidth]);
     function setLightTheme() {
         let themeMode = localStorage.getItem("theme");
         if (themeMode === "dark" || themeMode === null) {
@@ -114,6 +116,10 @@ function NavBar(props: any) {
             localStorage.setItem("theme", "dark");
         }
     }
+    function handleButtonNav() {
+        return localStorage.getItem("theme") === "light" ? setDarkTheme : setLightTheme;
+    }
+
     return (
         <>
             <Nav>
@@ -141,15 +147,23 @@ function NavBar(props: any) {
                         ) : null}
                     </Container>
                     <ContainerButtons>
-                        {localStorage.getItem("theme") === "dark" ? (
-                            <Button onClick={setLightTheme}>
-                                <ButtonLight />
+                        <motion.div
+                            key={localStorage.getItem("theme")}
+                            style={{ display: "inline-block" }}
+                            initial={{ y: -20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            exit={{ y: 20, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Button onClick={handleButtonNav()}>
+                                {localStorage.getItem("theme") === "dark" ? (
+                                    <ButtonDark />
+                                ) : (
+                                    <ButtonLight />
+                                )}
                             </Button>
-                        ) : (
-                            <Button onClick={setDarkTheme}>
-                                <ButtonDark />
-                            </Button>
-                        )}
+                        </motion.div>
+
                         {windowsWidth < 600 ? (
                             <ButtonNav setPress={setPress} press={press} />
                         ) : null}

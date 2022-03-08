@@ -69,7 +69,7 @@ const WebPage = () => {
 
     return (
         <Container>
-            <Section padding="40px 0 30px 0" flexDirection={currentWidth > 600 ? "row" : "column"}>
+            <Section padding="40px 0 0 0" flexDirection={currentWidth > 600 ? "row" : "column"}>
                 <Box width="auto" height="auto" flexDirection="column">
                     <NameTitle>Johan Rivera</NameTitle>
                     <NameSubTitle>Desarrollador ( React / Angualar )</NameSubTitle>
