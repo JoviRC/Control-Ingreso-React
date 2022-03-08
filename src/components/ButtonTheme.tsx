@@ -9,14 +9,15 @@ const ContainerIcon = styled.div`
     width: 35px;
     height: 35px;
     border-radius: 10px;
-    border: 1px solid ${(props) => props.theme.color.secundary};
-    background-color: ${(props) => props.theme.color.secundary};
+    background-color: ${(props) => props.theme.color.buttonBg};
+    color: ${(props) => props.theme.color.buttonIcon};
+    box-shadow: 10px 10px 49px -19px ${(props) => props.theme.color.buttonBg};
     outline: none;
 `;
 
 export const ButtonLight = () => {
-    return <ContainerIcon>x</ContainerIcon>;
+    return <ContainerIcon><BiMoon/></ContainerIcon>;
 };
 export const ButtonDark = () => {
-    return <ContainerIcon>i</ContainerIcon>;
+    return <ContainerIcon><BiSun/></ContainerIcon>;
 };

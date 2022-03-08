@@ -18,10 +18,8 @@ const Router = () => {
         align-items: center;
         padding: 0;
         margin: 0;
-        height: 100vh;
-        width: 100vw;
-        overflow-y: scroll;
-        overflow-x: hidden;
+        height: auto;
+        width: 100%;
     `;
 
     return (
