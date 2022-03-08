@@ -12,11 +12,9 @@ const WebPage = () => {
         });
     }, [currentWidth]);
     const Container = styled.div`
+        width: ${currentWidth > 600 ? "600px" : "100%"};
         margin-top: 70px;
         background-color: ${(props) => props.theme.color.primary};
-        width: 600px;
-        /* outline: red 2px solid; */
-        ${breakpoints("width", "vw", [{ 600: 100 }])};
     `;
     const NameTitle = styled.h1`
         color: ${(props) => props.theme.color.secondary};
