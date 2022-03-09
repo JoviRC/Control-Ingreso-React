@@ -1,4 +1,4 @@
-import { useState, useEffect, createRef, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { flexDirection, width, height, padding } from "styled-system";
 import { MdKeyboardArrowRight } from "react-icons/md";
@@ -6,31 +6,16 @@ import { Link } from "react-router-dom";
 const WebPage = () => {
     const heightRef = useRef();
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
-    const [currentHeight, setCurrentHeight] = useState(window.innerHeight);
-    const [contentHeight, setContentHeight] = useState(undefined);
     useEffect(() => {
         window.addEventListener("resize", () => {
             setCurrentWidth(window.innerWidth);
         });
     }, [currentWidth]);
-    useEffect(() => {
-        window.addEventListener("resize", () => {
-            setCurrentHeight(window.innerHeight);
-        });
-    }, [currentHeight]);
-    useEffect(() => {
-        window.addEventListener("resize", () => {
-            if (contentHeight > currentHeight) {
-                setContentHeight(heightRef.current.offsetHeight);
-                console.log(heightRef.current.offsetHeight);
-            }
-        });
-    }, []);
 
     const Container = styled.div`
-        height: ${currentHeight > contentHeight ? "100vh" : "auto"};
+        height: "auto";
         width: ${currentWidth > 600 ? "600px" : "100%"};
-        margin-top: 70px;
+        margin-top: 60px;
         background-color: ${(props) => props.theme.color.primary};
     `;
     const NameTitle = styled.h1`
@@ -46,7 +31,7 @@ const WebPage = () => {
     const Section = styled.div`
         width: auto;
         height: auto;
-        ${padding}
+        ${padding};
         display: flex;
         justify-content: center;
         align-items: center;
@@ -94,31 +79,34 @@ const WebPage = () => {
         color: ${(props) => props.theme.color.primary};
         font-family: Ruluko;
         border-radius: 10px;
+        font-weight: bold;
         cursor: pointer;
     `;
     const LayoutBio = styled.div`
         display: flex;
-        margin: ${currentWidth > 600 ? "10px auto 10px 30px" : "10px auto"};
-        text-align: justify;
+        padding: ${currentWidth > 600 ? "0 50px" : "0 30px"};
+        margin: ${currentWidth > 600 ? "10px auto 10px 0" : "10px auto"};
+        text-align: flex-start;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: space-between;
     `;
     const AgeBio = styled.h1`
         font-size: ${currentWidth > 600 ? "20px" : "24px"};
         font-family: Ruluko;
         color: ${(props) => props.theme.color.secondary};
-        margin: 0 10px;
+        margin: 0 10px 0 0;
     `;
     const ContentBio = styled.p`
         font-size: ${currentWidth > 600 ? "16px" : "20px"};
         font-family: Ruluko;
         color: ${(props) => props.theme.color.secondary};
-        margin: 0 10px;
+        margin: 0 10px 0 0;
+        text-align: justify;
     `;
 
     return (
         <Container ref={heightRef}>
-            <Section padding="40px 0 0 0" flexDirection={currentWidth > 600 ? "row" : "column"}>
+            <Section padding="60px 0 0 0" flexDirection={currentWidth > 600 ? "row" : "column"}>
                 <Box width="auto" height="auto" flexDirection="column">
                     <NameTitle>Johan Rivera</NameTitle>
                     <NameSubTitle>Desarrollador ( React / Angualar )</NameSubTitle>
@@ -127,7 +115,7 @@ const WebPage = () => {
                     <Avatar src={process.env.PUBLIC_URL + "/assets/img/foto.png"} alt="Avatar" />
                 </Box>
             </Section>
-            <Section flexDirection={currentWidth > 600 ? "row" : "column"} padding="30px 0px">
+            <Section padding="30px 0px" flexDirection={currentWidth > 600 ? "row" : "column"}>
                 <Box
                     flexDirection="column"
                     width={currentWidth > 600 ? "630px" : "100%"}
@@ -147,17 +135,17 @@ const WebPage = () => {
             <Section padding="10px">
                 <Link to="/Trabajos" style={{ textDecoration: "none" }}>
                     <ButtonPortfolio>
-                        Portafolio <MdKeyboardArrowRight />
+                        Trabajos <MdKeyboardArrowRight />
                     </ButtonPortfolio>
                 </Link>
             </Section>
-            <Section padding="30px" flexDirection="column">
-                <Titule>Bibliografia</Titule>
+            <Section padding="50px 0" flexDirection="column">
+                <Titule>Bibliografía</Titule>
                 <br />
                 <LayoutBio>
                     <AgeBio>1995</AgeBio>
                     <ContentBio>
-                        Nací y me crie en la ciudad de Ovalle Cuarta Región de Chile
+                        Nací y me crié en la ciudad de Ovalle Cuarta Región de Coquimbo, Chile
                     </ContentBio>
                 </LayoutBio>
                 <LayoutBio>

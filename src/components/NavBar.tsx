@@ -6,7 +6,7 @@ import { breakpoints } from "../lib/styledBreakPoints";
 import { GoMarkGithub } from "react-icons/go";
 import { motion } from "framer-motion";
 import styled from "styled-components";
-import { fontSize } from "styled-system";
+import { width } from "styled-system";
 import ButtonNav from "./ButtonNav";
 
 function NavBar(props: any) {
@@ -96,6 +96,13 @@ function NavBar(props: any) {
         margin: 0;
         margin-right: 30px;
     `;
+    const SpanLine = styled.span<{width:string}>`
+        display: block;
+        background-color: ${(props) => props.theme.color.buttonBg};
+        height: 2px;
+        border-radius: 5px;
+        ${width};
+    `;
 
     useEffect(() => {
         window.addEventListener("resize", () => {
@@ -174,6 +181,7 @@ function NavBar(props: any) {
                         <Link to="/Trabajos" style={{ textDecoration: "none" }}>
                             <LinkText>Trabajos</LinkText>
                         </Link>
+                        <SpanLine width="50vw" />
                         <a
                             href="https://github.com/JoviRC"
                             target="_blank"
@@ -184,6 +192,7 @@ function NavBar(props: any) {
                                 <GoMarkGithub /> GitHub
                             </LinkText>
                         </a>
+                        <SpanLine width="100%" />
                     </BoxNav>
                 ) : null}
             </Nav>

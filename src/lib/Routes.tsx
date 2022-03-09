@@ -18,7 +18,7 @@ const Router = () => {
         align-items: center;
         padding: 0;
         margin: 0;
-        height: auto;
+        height: ${window.innerHeight}px;
         width: 100%;
     `;
 
