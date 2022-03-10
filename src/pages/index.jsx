@@ -1,16 +1,26 @@
 import styled from "styled-components";
+import AnimationPage from "../components/PageTransition";
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useState, useEffect } from "react";
 import { flexDirection, width, height, padding } from "styled-system";
-import AnimationPage from "../components/PageTransition";
+import { AiFillLinkedin, AiFillInstagram, AiFillHeart, AiFillMail, AiFillGithub } from "react-icons/ai";
 const WebPage = () => {
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
+    const [GmailText, setGmailText] = useState("@Gmail");
     useEffect(() => {
         window.addEventListener("resize", () => {
             setCurrentWidth(window.innerWidth);
         });
     }, [currentWidth]);
+
+    const copy = () => {
+        navigator.clipboard.writeText("johanrc95@gmail.com");
+        setGmailText("Copiado");
+        setTimeout(() => {
+            setGmailText("@Gmail");
+        }, 1000);
+    };
 
     const Container = styled.div`
         height: "auto";
@@ -103,8 +113,37 @@ const WebPage = () => {
         font-size: ${currentWidth > 600 ? "16px" : "20px"};
         font-family: Ruluko;
         color: ${(props) => props.theme.color.secondary};
-        margin: 0 10px 0 0;
+        margin: auto 10px auto 0;
         text-align: justify;
+    `;
+    const RedesContainer = styled.a`
+        display: flex;
+        justify-content: ${currentWidth > 600 ? "flex-start" : "center"};
+        align-items: center;
+        background-color: ${(props) => props.theme.color.buttonBg};
+        color: ${(props) => props.theme.color.primary};
+        font-family: Ruluko;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-radius: 10px;
+        margin: ${currentWidth > 600 ? "0 auto 20px 50px;" : "10px auto"};
+        transition: all 0.3s;
+        cursor: pointer;
+        :hover {
+            background-color: ${(props) => props.theme.color.secondary};
+        }
+    `;
+    const RedesText = styled.div`
+        margin: 0 0 0 10px;
+        font-size: 20px;
+        font-family: Ruluko;
+        font-weight: lighter;
+        cursor: pointer;
+    `;
+    const TextFooter = styled.p`
+        color:${(props) => props.theme.color.tertiary};
+        font-family: Ruluko;
+        margin: 0 auto 30px auto;
     `;
 
     return (
@@ -166,6 +205,66 @@ const WebPage = () => {
                         <AgeBio>2022</AgeBio>
                         <ContentBio>Puesto administrativo, Hospital Provincial Ovalle</ContentBio>
                     </LayoutBio>
+                </Section>
+                <Section padding="0 0 50px 0" flexDirection="column">
+                    <Titule>
+                        <AiFillHeart />
+                    </Titule>
+                    <br />
+                    <LayoutBio>
+                        <AgeBio>Anime</AgeBio>
+                        <ContentBio>Shigatsu wa kimi no uso ( Your Lie in April )</ContentBio>
+                    </LayoutBio>
+                    <LayoutBio>
+                        <AgeBio>Grupo Musical</AgeBio>
+                        <ContentBio>Mago de Oz</ContentBio>
+                    </LayoutBio>
+                    <LayoutBio>
+                        <AgeBio>Artistas</AgeBio>
+                        <ContentBio>Steve Vai - Stevie Ray - Gary Moore</ContentBio>
+                    </LayoutBio>
+                    <LayoutBio>
+                        <AgeBio>Youtuber</AgeBio>
+                        <ContentBio>Martin Miller</ContentBio>
+                    </LayoutBio>
+                </Section>
+                <Section padding="0 0 50px 0" flexDirection="column">
+                    <Titule>Redes</Titule>
+                    <br />
+                    <RedesContainer
+                        href="https://www.linkedin.com/in/johan-rc/"
+                        target="_blank"
+                        style={{ textDecoration: "none" }}
+                        rel="noreferrer"
+                    >
+                        <AiFillLinkedin style={{ height: "20px", width: "20px" }} />
+                        <RedesText>@JohanRC</RedesText>
+                    </RedesContainer>
+                    <RedesContainer
+                        href="https://github.com/JoviRC"
+                        target="_blank"
+                        style={{ textDecoration: "none" }}
+                        rel="noreferrer"
+                    >
+                        <AiFillGithub style={{ height: "20px", width: "20px" }} />
+                        <RedesText>@JoviRC</RedesText>
+                    </RedesContainer>
+                    <RedesContainer
+                        href="https://www.instagram.com/jovirc/"
+                        target="_blank"
+                        style={{ textDecoration: "none" }}
+                        rel="noreferrer"
+                    >
+                        <AiFillInstagram style={{ height: "20px", width: "20px" }} />
+                        <RedesText>@JoviRC</RedesText>
+                    </RedesContainer>
+                    <RedesContainer onClick={copy} style={{ textDecoration: "none" }}>
+                        <AiFillMail style={{ height: "20px", width: "20px" }} />
+                        <RedesText>{GmailText}</RedesText>
+                    </RedesContainer>
+                </Section>
+                <Section>
+                    <TextFooter>&#xA9; 2022 Johan Rivera. All Rights Reserved.</TextFooter>
                 </Section>
             </Container>
         </AnimationPage>
