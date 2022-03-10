@@ -13,7 +13,7 @@ const AnimationPage: React.FC = ({ children }) => {
                 animate="enter"
                 exit="exit"
                 variants={variants}
-                transition={{ duration: 0.4, type: "easeInOut" }}
+                transition={{ type: "circInOut", duration: 0.4 }}
             >
                 <div style={{ display: "inline-block" }}>{children}</div>
             </motion.div>

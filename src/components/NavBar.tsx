@@ -133,7 +133,7 @@ function NavBar(props: any) {
             <Nav>
                 <Box>
                     <Container>
-                        <Link to="/" style={{ textDecoration: "none" }}>
+                        <Link to="/" style={{ textDecoration: "none" }} onClick={()=>setPress(false)} >
                             <Titule>Johan Rivera</Titule>
                         </Link>
                         {windowsWidth > 600 ? (
@@ -179,7 +179,7 @@ function NavBar(props: any) {
                 </Box>
                 {press && windowsWidth < 600 ? (
                     <BoxNav>
-                        <Link to="/works" style={{ textDecoration: "none" }}>
+                        <Link to="/works" style={{ textDecoration: "none" }} onClick={()=>setPress(!press)} >
                             <LinkText>Trabajos</LinkText>
                         </Link>
                         <SpanLine width="50vw" />
