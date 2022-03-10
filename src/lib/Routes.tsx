@@ -1,9 +1,11 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
 import WebPage from "../pages";
-import styled, { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "../lib/Theme";
+import Works from "../pages/works";
 import NavBar from "../components/NavBar";
+import styled, { ThemeProvider } from "styled-components";
+import { AnimatePresence } from "framer-motion";
+import { Route, Switch } from "react-router-dom";
+import { darkTheme, lightTheme } from "../lib/Theme";
 
 const Router = () => {
     let themeMode = localStorage.getItem("theme");
@@ -18,18 +20,32 @@ const Router = () => {
         align-items: center;
         padding: 0;
         margin: 0;
-        height: ${window.innerHeight}px;
+        min-height: 100vh;
+        min-width: 100vw;
+        height: 100%;
         width: 100%;
     `;
-
     return (
         <>
             <ThemeProvider theme={theme}>
                 <Container>
                     <NavBar setTheme={setTheme} />
-                    <Routes>
-                        <Route path="/" element={<WebPage />} />
-                    </Routes>
+                    <Route
+                        render={({ location }) => (
+                            <>
+                                <AnimatePresence exitBeforeEnter initial={false}>
+                                    <Switch key={location.key} location={location}>
+                                        <Route exact path="/">
+                                            <WebPage />
+                                        </Route>
+                                        <Route  path="/works">
+                                            <Works />
+                                        </Route>
+                                    </Switch>
+                                </AnimatePresence>
+                            </>
+                        )}
+                    />
                 </Container>
             </ThemeProvider>
         </>

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { flexDirection, width, height, padding } from "styled-system";
-import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { MdKeyboardArrowRight } from "react-icons/md";
+import { useState, useEffect } from "react";
+import { flexDirection, width, height, padding } from "styled-system";
+import AnimationPage from "../components/PageTransition";
 const WebPage = () => {
-    const heightRef = useRef();
     const [currentWidth, setCurrentWidth] = useState(window.innerWidth);
     useEffect(() => {
         window.addEventListener("resize", () => {
@@ -22,11 +22,14 @@ const WebPage = () => {
         color: ${(props) => props.theme.color.secondary};
         font-size: ${currentWidth > 600 ? "40px" : "30px"};
         margin: 0 auto;
+        font-family: Ruluko;
     `;
-    const NameSubTitle = styled.h1`
+    const NameSubTitle = styled.p`
         font-size: ${currentWidth > 600 ? "20px" : "16px"};
         margin: 0 auto;
         color: ${(props) => props.theme.color.tertiary};
+        font-family: Ruluko;
+        font-weight: bold;
     `;
     const Section = styled.div`
         width: auto;
@@ -105,61 +108,67 @@ const WebPage = () => {
     `;
 
     return (
-        <Container ref={heightRef}>
-            <Section padding="60px 0 0 0" flexDirection={currentWidth > 600 ? "row" : "column"}>
-                <Box width="auto" height="auto" flexDirection="column">
-                    <NameTitle>Johan Rivera</NameTitle>
-                    <NameSubTitle>Desarrollador ( React / Angualar )</NameSubTitle>
-                </Box>
-                <Box width="180px" height="auto">
-                    <Avatar src={process.env.PUBLIC_URL + "/assets/img/foto.png"} alt="Avatar" />
-                </Box>
-            </Section>
-            <Section padding="30px 0px" flexDirection={currentWidth > 600 ? "row" : "column"}>
-                <Box
-                    flexDirection="column"
-                    width={currentWidth > 600 ? "630px" : "100%"}
-                    height="90%"
-                >
-                    <Titule>Sobre mí</Titule>
-                    <Paragraph>
-                        Soy un desarrollador Front-End apasionado por la tecnología, la música, la
-                        ciencia y el anime, poseeo un titulo de Ingeniero en informática en la
-                        Universidad Tecnológica INACAP y actualmente trabajo en el Hospital
-                        Provincial de Ovalle. Me considero una persona responsable, autodidacta,
-                        comprometida y además con muchas ganas de trabajar en un equipo de
-                        desarrollo Web.
-                    </Paragraph>
-                </Box>
-            </Section>
-            <Section padding="10px">
-                <Link to="/Trabajos" style={{ textDecoration: "none" }}>
-                    <ButtonPortfolio>
-                        Trabajos <MdKeyboardArrowRight />
-                    </ButtonPortfolio>
-                </Link>
-            </Section>
-            <Section padding="50px 0" flexDirection="column">
-                <Titule>Bibliografía</Titule>
-                <br />
-                <LayoutBio>
-                    <AgeBio>1995</AgeBio>
-                    <ContentBio>
-                        Nací y me crié en la ciudad de Ovalle Cuarta Región de Coquimbo, Chile
-                    </ContentBio>
-                </LayoutBio>
-                <LayoutBio>
-                    <AgeBio>2021</AgeBio>
-                    <ContentBio>
-                        Titulado de Ingeniero en Informática de la Universidad Tecnológica INACAP
-                    </ContentBio>
-                </LayoutBio>
-                <LayoutBio>
-                    <AgeBio>2022</AgeBio>
-                    <ContentBio>Puesto administrativo, Hospital Provincial Ovalle</ContentBio>
-                </LayoutBio>
-            </Section>
-        </Container>
+        <AnimationPage>
+            <Container>
+                <Section padding="60px 0 0 0" flexDirection={currentWidth > 600 ? "row" : "column"}>
+                    <Box width="auto" height="auto" flexDirection="column">
+                        <NameTitle>Johan Rivera</NameTitle>
+                        <NameSubTitle>Desarrollador ( React / Angualar )</NameSubTitle>
+                    </Box>
+                    <Box width="180px" height="auto">
+                        <Avatar
+                            src={process.env.PUBLIC_URL + "/assets/img/foto.png"}
+                            alt="Avatar"
+                        />
+                    </Box>
+                </Section>
+                <Section padding="30px 0px" flexDirection={currentWidth > 600 ? "row" : "column"}>
+                    <Box
+                        flexDirection="column"
+                        width={currentWidth > 600 ? "630px" : "100%"}
+                        height="90%"
+                    >
+                        <Titule>Sobre mí</Titule>
+                        <Paragraph>
+                            Soy un desarrollador Front-End apasionado por la tecnología, la música,
+                            la ciencia y el anime, poseeo un titulo de Ingeniero en informática en
+                            la Universidad Tecnológica INACAP y actualmente trabajo en el Hospital
+                            Provincial de Ovalle. Me considero una persona responsable, autodidacta,
+                            comprometida y además con muchas ganas de trabajar en un equipo de
+                            desarrollo Web.
+                        </Paragraph>
+                    </Box>
+                </Section>
+                <Section padding="10px">
+                    <Link to="/works" style={{ textDecoration: "none" }}>
+                        <ButtonPortfolio>
+                            Trabajos <MdKeyboardArrowRight />
+                        </ButtonPortfolio>
+                    </Link>
+                </Section>
+                <Section padding="50px 0" flexDirection="column">
+                    <Titule>Bibliografía</Titule>
+                    <br />
+                    <LayoutBio>
+                        <AgeBio>1995</AgeBio>
+                        <ContentBio>
+                            Nací y me crié en la ciudad de Ovalle Cuarta Región de Coquimbo, Chile
+                        </ContentBio>
+                    </LayoutBio>
+                    <LayoutBio>
+                        <AgeBio>2021</AgeBio>
+                        <ContentBio>
+                            Titulado de Ingeniero en Informática de la Universidad Tecnológica
+                            INACAP
+                        </ContentBio>
+                    </LayoutBio>
+                    <LayoutBio>
+                        <AgeBio>2022</AgeBio>
+                        <ContentBio>Puesto administrativo, Hospital Provincial Ovalle</ContentBio>
+                    </LayoutBio>
+                </Section>
+            </Container>
+        </AnimationPage>
     );
 };
 

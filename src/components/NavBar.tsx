@@ -65,6 +65,7 @@ function NavBar(props: any) {
         text-decoration: none;
         margin: 0 10px 0 30px;
         font-family: Ruluko;
+        font-weight: bold;
         :hover {
             color: ${(props) => props.theme.color.tertiary};
         }
@@ -137,7 +138,7 @@ function NavBar(props: any) {
                         </Link>
                         {windowsWidth > 600 ? (
                             <LinkBox>
-                                <Link to="/Trabajos" style={{ textDecoration: "none" }}>
+                                <Link to="/works" style={{ textDecoration: "none" }}>
                                     <LinkText>Trabajos</LinkText>
                                 </Link>
                                 <a
@@ -178,7 +179,7 @@ function NavBar(props: any) {
                 </Box>
                 {press && windowsWidth < 600 ? (
                     <BoxNav>
-                        <Link to="/Trabajos" style={{ textDecoration: "none" }}>
+                        <Link to="/works" style={{ textDecoration: "none" }}>
                             <LinkText>Trabajos</LinkText>
                         </Link>
                         <SpanLine width="50vw" />
