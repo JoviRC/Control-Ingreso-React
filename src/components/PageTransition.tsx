@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const AnimationPage: React.FC = ({ children }) => {
     const variants = {
@@ -8,15 +8,15 @@ const AnimationPage: React.FC = ({ children }) => {
     };
 
     return (
-            <motion.div
-                initial="hidden"
-                animate="enter"
-                exit="exit"
-                variants={variants}
-                transition={{ type: "circInOut", duration: 0.4 }}
-            >
-                <div style={{ display: "inline-block" }}>{children}</div>
-            </motion.div>
+        <motion.div
+            initial="hidden"
+            animate="enter"
+            exit="exit"
+            variants={variants}
+            transition={{ type: "circInOut", duration: 0.4 }}
+        >
+            <div style={{ display: "inline-block" }}>{children}</div>
+        </motion.div>
     );
 };
 export default AnimationPage;

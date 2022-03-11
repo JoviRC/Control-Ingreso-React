@@ -9,7 +9,8 @@ export const darkTheme = {
         nav: "#20202580",
         buttonBg: "#dec492",
         buttonBorder: "#decfb3",
-        buttonIcon: "#353749"
+        buttonIcon: "#353749",
+        cardBg: "#ffffff40",
     },
 };
 
@@ -21,7 +22,8 @@ export const lightTheme: Theme = {
         nav: "#ffffff40",
         buttonBg: "#353749",
         buttonBorder: "#464a66",
-        buttonIcon: "#dec492"
+        buttonIcon: "#dec492",
+        cardBg: "#20202580",
     },
 };
 

@@ -21,9 +21,8 @@ const WebPage = () => {
             setGmailText("@Gmail");
         }, 1000);
     };
-
     const Container = styled.div`
-        height: "auto";
+        height: auto;
         width: ${currentWidth > 600 ? "600px" : "100%"};
         margin-top: 60px;
         background-color: ${(props) => props.theme.color.primary};
