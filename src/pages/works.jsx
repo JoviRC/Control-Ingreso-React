@@ -12,12 +12,12 @@ const Works = () => {
         });
     }, [currentWidth]);
 
+
     const Container = styled.div`
         display: flex;
         flex-direction: column;
         height: "auto";
         width: ${currentWidth > 600 ? "600px" : "100%"};
-        margin-top: 60px;
         background-color: ${(props) => props.theme.color.primary};
     `;
     const Title = styled.h1`
@@ -54,32 +54,33 @@ const Works = () => {
         width: 100%;
         height: auto;
         text-decoration: none;
+        margin: 10px auto;
     `;
     const TitleCard = styled.h1`
-    font-size: ${currentWidth > 600 ? "20px" : "15px"};
-    font-family: Ruluko;
-    color: ${(props) => props.theme.color.secondary};
-    margin: 0;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
+        font-size: ${currentWidth > 600 ? "20px" : "25px"};
+        font-family: Ruluko;
+        color: ${(props) => props.theme.color.secondary};
+        margin: 0;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
     `;
     const DetailsCard = styled.p`
-        font-size: ${currentWidth > 600 ? "15px" : "10px"};
+        font-size: ${currentWidth > 600 ? "15px" : "20px"};
         color: ${(props) => props.theme.color.secondary};
         margin: 0;
         text-align: center;
         text-decoration: none;
+        padding: 0 10px;
     `;
-
     return (
         <AnimationPage>
             <Container>
                 <Title>Trabajos</Title>
                 <Section>
                     {DataCard.map((data, idx) => (
-                        <Card key={idx} href={data.url} >
-                            <ImgCard src={data.img} />
+                        <Card key={idx} href={data.url} rel="noreferrer" target="_blank">
+                            <ImgCard src={process.env.PUBLIC_URL + data.img} />
                             <InfoCard>
                                 <TitleCard>{data.title}</TitleCard>
                                 <DetailsCard>{data.description}</DetailsCard>

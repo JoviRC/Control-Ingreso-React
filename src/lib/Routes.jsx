@@ -5,7 +5,7 @@ import NavBar from "../components/NavBar";
 import styled, { ThemeProvider } from "styled-components";
 import { AnimatePresence } from "framer-motion";
 import { Route, Switch } from "react-router-dom";
-import { darkTheme, lightTheme } from "../lib/Theme";
+import { darkTheme, lightTheme } from "./Theme";
 
 const Router = () => {
     let themeMode = localStorage.getItem("theme");
@@ -18,13 +18,14 @@ const Router = () => {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0;
+        padding: 60px 0 0 0;
         margin: 0;
         min-height: 100vh;
         min-width: 100vw;
         height: 100%;
         width: 100%;
     `;
+
     return (
         <>
             <ThemeProvider theme={theme}>
@@ -35,10 +36,10 @@ const Router = () => {
                             <>
                                 <AnimatePresence exitBeforeEnter initial={false}>
                                     <Switch key={location.key} location={location}>
-                                        <Route exact path="/">
+                                        <Route exact path="/Portfolio-React/">
                                             <WebPage />
                                         </Route>
-                                        <Route  path="/works">
+                                        <Route path="/works">
                                             <Works />
                                         </Route>
                                     </Switch>

@@ -4,7 +4,7 @@ import { ButtonDark, ButtonLight } from "../components/ButtonTheme";
 import { Link } from "react-router-dom";
 import { breakpoints } from "../lib/styledBreakPoints";
 import { GoMarkGithub } from "react-icons/go";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
 import { width } from "styled-system";
 import ButtonNav from "./ButtonNav";
@@ -97,7 +97,7 @@ function NavBar(props: any) {
         margin: 0;
         margin-right: 30px;
     `;
-    const SpanLine = styled.span<{width:string}>`
+    const SpanLine = styled.span<{ width: string }>`
         display: block;
         background-color: ${(props) => props.theme.color.buttonBg};
         height: 2px;
@@ -133,7 +133,11 @@ function NavBar(props: any) {
             <Nav>
                 <Box>
                     <Container>
-                        <Link to="/" style={{ textDecoration: "none" }} onClick={()=>setPress(false)} >
+                        <Link
+                            to="/Portfolio-React/"
+                            style={{ textDecoration: "none" }}
+                            onClick={() => setPress(false)}
+                        >
                             <Titule>Johan Rivera</Titule>
                         </Link>
                         {windowsWidth > 600 ? (
@@ -155,6 +159,7 @@ function NavBar(props: any) {
                         ) : null}
                     </Container>
                     <ContainerButtons>
+                    <AnimatePresence>
                         <motion.div
                             key={localStorage.getItem("theme")}
                             style={{ display: "inline-block" }}
@@ -171,7 +176,7 @@ function NavBar(props: any) {
                                 )}
                             </Button>
                         </motion.div>
-
+                        </AnimatePresence>
                         {windowsWidth < 600 ? (
                             <ButtonNav setPress={setPress} press={press} />
                         ) : null}
@@ -179,7 +184,11 @@ function NavBar(props: any) {
                 </Box>
                 {press && windowsWidth < 600 ? (
                     <BoxNav>
-                        <Link to="/works" style={{ textDecoration: "none" }} onClick={()=>setPress(!press)} >
+                        <Link
+                            to="/works"
+                            style={{ textDecoration: "none" }}
+                            onClick={() => setPress(!press)}
+                        >
                             <LinkText>Trabajos</LinkText>
                         </Link>
                         <SpanLine width="50vw" />
@@ -187,7 +196,7 @@ function NavBar(props: any) {
                             href="https://github.com/JoviRC"
                             target="_blank"
                             style={{ textDecoration: "none" }}
-                            rel="noreferrer"
+                            rel="noreferrer"    
                         >
                             <LinkText>
                                 <GoMarkGithub /> GitHub

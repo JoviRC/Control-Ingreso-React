@@ -11,20 +11,24 @@ interface Card {
 
 const DataCard: Card = [
     {
-        img: "https://i.imgur.com/qZQZQZQ.png",
+        img: "/assets/img/addventure.png",
         url: "https://github.com/JoviRC/Addventure",
         title: "Addventure",
         description:
-            "Juego Matematico infantil para Android desarrollado en Angular, Firebase, Ionic. ( Tesis Universitaria )",
+            "Juego Matemático infantil para Android desarrollado en Angular, Firebase e Ionic. ( Tesis Universitaria )",
     },
     {
-        img: "https://i.imgur.com/qZQZQZQ.png",
+        img: `${
+            localStorage.getItem("theme") === "light"
+                ? "/assets/img/webpagedark.png"
+                : "/assets/img/webpagelight.png"
+        }`,
         url: "https://github.com/JoviRC/Portfolio-React",
         title: "Portafolio",
         description: "Codigo fuente de esta web desarrollada en React.",
     },
     {
-        img: "https://i.imgur.com/qZQZQZQ.png",
+        img: "/assets/img/simple.png",
         url: "https://github.com/JoviRC/menu-simple",
         title: "Menu Simple",
         description: "Web para restaurant Simple desarrollada en React.",

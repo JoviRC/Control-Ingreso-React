@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { BiMenu, BiMenuAltRight } from "react-icons/bi";
 const Container = styled.div`
     display: flex;
@@ -22,18 +22,20 @@ const ButtonNav = (props: any) => {
     }
 
     return (
-        <motion.div
-            style={{ display: "inline-block" }}
-            key={props.press}
-            initial={{ scale: 1 }}
-            animate={{ scale: 1.1 }}
-            exit={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
-        >
-            <Container onClick={() => handleButtonNav()}>
-                {props.press ? <BiMenuAltRight /> : <BiMenu />}
-            </Container>
-        </motion.div>
+        <AnimatePresence >
+            <motion.div
+                style={{ display: "inline-block" }}
+                key={props.press}
+                initial={{ scale: 1 }}
+                animate={{ scale: 1.1 }}
+                exit={{ scale: 1 }}
+                transition={{ duration: 0.2 }}
+            >
+                <Container onClick={() => handleButtonNav()}>
+                    {props.press ? <BiMenuAltRight /> : <BiMenu />}
+                </Container>
+            </motion.div>
+        </AnimatePresence>
     );
 };
 export default ButtonNav;

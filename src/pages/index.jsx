@@ -24,7 +24,6 @@ const WebPage = () => {
     const Container = styled.div`
         height: auto;
         width: ${currentWidth > 600 ? "600px" : "100%"};
-        margin-top: 60px;
         background-color: ${(props) => props.theme.color.primary};
     `;
     const NameTitle = styled.h1`
