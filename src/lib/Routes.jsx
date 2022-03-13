@@ -36,7 +36,7 @@ const Router = () => {
                             <>
                                 <AnimatePresence exitBeforeEnter initial={false}>
                                     <Switch key={location.key} location={location}>
-                                        <Route exact path="/Portfolio-React/">
+                                        <Route exact path="/">
                                             <WebPage />
                                         </Route>
                                         <Route path="/works">
