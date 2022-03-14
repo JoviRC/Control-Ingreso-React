@@ -134,7 +134,7 @@ function NavBar(props: any) {
                 <Box>
                     <Container>
                         <Link
-                            to="/Portfolio-React/"
+                            to="/"
                             style={{ textDecoration: "none" }}
                             onClick={() => setPress(false)}
                         >
