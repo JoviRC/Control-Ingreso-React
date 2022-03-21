@@ -6,6 +6,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { AnimatePresence } from "framer-motion";
 import { Route, Switch } from "react-router-dom";
 import { darkTheme, lightTheme } from "./Theme";
+import NotFound from "../pages/404";
 
 const Router = () => {
     let themeMode = localStorage.getItem("theme");
@@ -36,11 +37,14 @@ const Router = () => {
                             <>
                                 <AnimatePresence exitBeforeEnter initial={false}>
                                     <Switch key={location.key} location={location}>
-                                        <Route exact path="/Portfolio-React/">
+                                        <Route exact path="/">
                                             <WebPage />
                                         </Route>
                                         <Route path="/works">
                                             <Works />
+                                        </Route>
+                                        <Route path="*">
+                                            <NotFound />
                                         </Route>
                                     </Switch>
                                 </AnimatePresence>

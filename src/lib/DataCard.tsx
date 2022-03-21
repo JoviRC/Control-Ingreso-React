@@ -29,7 +29,7 @@ const DataCard: Card = [
     },
     {
         img: "/assets/img/simple.png",
-        url: "https://github.com/JoviRC/menu-simple",
+        url: "https://github.com/JoviRC/simplerest",
         title: "Menu Simple",
         description: "Web para restaurant Simple desarrollada en React.",
     },
