@@ -16,7 +16,7 @@ const NotFound = () => {
     const Container = styled.div`
         display: flex;
         flex-direction: column;
-        item-align: center;
+        align-items: center;
         max-height: 100vh;
         width: ${currentWidth > 600 ? "600px" : "100%"};
         background-color: ${(props) => props.theme.color.primary};
