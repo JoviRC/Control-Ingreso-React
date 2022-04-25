@@ -33,6 +33,18 @@ const DataCard: Card = [
         title: "Menu Simple",
         description: "Web para restaurant Simple desarrollada en React.",
     },
+    {
+        img: "/assets/img/inventory.png",
+        url: "https://github.com/JoviRC/inventory-electron",
+        title: "Inventory",
+        description: "(En Desarrollo) Software desarrollado en Electron, ReactJs, Json-Server y Express.",
+    },
+    {
+        img: "/assets/img/checkin.png",
+        url: "https://github.com/JoviRC/CheckIn",
+        title: "CheckIn",
+        description: "(En Desarrollo) Software desarrollado en Electron, ReactJs, Json-Server y Express.",
+    },
 ];
 
 export default DataCard;
