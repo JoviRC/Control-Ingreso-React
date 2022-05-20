@@ -37,13 +37,15 @@ const DataCard: Card = [
         img: "/assets/img/inventory.png",
         url: "https://github.com/JoviRC/inventory-electron",
         title: "Inventory",
-        description: "(En Desarrollo) Software desarrollado en Electron, ReactJs, Json-Server y Express.",
+        description:
+            "(En Desarrollo) Software desarrollado en Electron, ReactJs, Json-Server y Express.",
     },
     {
         img: "/assets/img/checkin.png",
-        url: "https://github.com/JoviRC/CheckIn",
+        url: "https://github.com/JoviRC/CheckIn-Clock.git",
         title: "CheckIn",
-        description: "(En Desarrollo) Software desarrollado en Electron, ReactJs, Json-Server y Express.",
+        description:
+            "(En Desarrollo) Software desarrollado en Electron, ReactJs, Json-Server y Express.",
     },
 ];
 
