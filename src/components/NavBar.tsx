@@ -28,6 +28,7 @@ function NavBar(props: any) {
         height: auto;
         top: 0;
         backdrop-filter: blur(10px);
+        z-index: 1000;
     `;
     const Box = styled.div`
         height: 60px;
