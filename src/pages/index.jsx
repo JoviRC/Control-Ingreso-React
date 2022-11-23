@@ -212,7 +212,7 @@ const WebPage = () => {
                     </Titule>
                     <br />
                     <LayoutBio>
-                        <AgeBio>Pelicula</AgeBio>
+                        <AgeBio>Película</AgeBio>
                         <ContentBio>Interestelar</ContentBio>
                     </LayoutBio>
                     <LayoutBio>
