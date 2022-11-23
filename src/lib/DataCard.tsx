@@ -29,7 +29,7 @@ const DataCard: Card = [
     },
     {
         img: "/assets/img/simple.png",
-        url: "https://github.com/JoviRC/simplerest",
+        url: "https://simplrest.com/",
         title: "Menu Simple",
         description: "Web para restaurant Simple desarrollada en React.",
     },
@@ -46,6 +46,13 @@ const DataCard: Card = [
         title: "CheckIn",
         description:
             "(En Desarrollo) Software desarrollado en Electron, ReactJs, Json-Server y Express.",
+    },
+    {
+        img: "/assets/img/amsoft.png",
+        url: "https://www.amsoft.cl/",
+        title: "Proyecto AMB - Zurich",
+        description:
+            "Proyecto automatizador de creación, modificación y eliminación de cuentas para aseguradora ZURICH, Software Desarrollado en .Net Core v6, SQL Server, SQL DB2, AS400",
     },
 ];
 

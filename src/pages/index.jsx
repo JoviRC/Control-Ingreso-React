@@ -150,11 +150,11 @@ const WebPage = () => {
                 <Section padding="60px 0 0 0" flexDirection={currentWidth > 600 ? "row" : "column"}>
                     <Box width="auto" height="auto" flexDirection="column">
                         <NameTitle>Johan Rivera</NameTitle>
-                        <NameSubTitle>Desarrollador ( React / Angualar )</NameSubTitle>
+                        <NameSubTitle>Desarrollador FullStack</NameSubTitle>
                     </Box>
                     <Box width="180px" height="auto">
                         <Avatar
-                            src={process.env.PUBLIC_URL + "/assets/img/foto.png"}
+                            src={process.env.PUBLIC_URL + "/assets/img/foto.jpeg"}
                             alt="Avatar"
                         />
                     </Box>
@@ -167,12 +167,10 @@ const WebPage = () => {
                     >
                         <Titule>Sobre mí</Titule>
                         <Paragraph>
-                            Soy un desarrollador Front-End apasionado por la tecnología, la música,
-                            la ciencia y el anime, poseeo un titulo de Ingeniero en informática en
-                            la Universidad Tecnológica INACAP y actualmente trabajo en el Hospital
-                            Provincial de Ovalle. Me considero una persona responsable, autodidacta,
-                            comprometida y además con muchas ganas de trabajar en un equipo de
-                            desarrollo Web.
+                            Soy un desarrollador web apasionado por la tecnología, la música,
+                            la ciencia y la animación, poseeo un titulo de Ingeniero en informática en
+                            la Universidad Tecnológica INACAP y actualmente trabajo como back-end en AMSOFT. 
+                            Me considero una persona responsable, autodidacta y comunicativa.
                         </Paragraph>
                     </Box>
                 </Section>
@@ -187,21 +185,25 @@ const WebPage = () => {
                     <Titule>Bibliografía</Titule>
                     <br />
                     <LayoutBio>
-                        <AgeBio>1995</AgeBio>
-                        <ContentBio>
-                            Nací y me crié en la ciudad de Ovalle Cuarta Región de Coquimbo, Chile
-                        </ContentBio>
+                        <AgeBio>2022</AgeBio>
+                        <ContentBio>Desarrollador Back-End, AMSOFT ( Región Metropolitana )</ContentBio>
+                    </LayoutBio>
+                    <LayoutBio>
+                        <AgeBio>2022</AgeBio>
+                        <ContentBio>Puesto administrativo, Hospital Provincial ( 4ta Región - Ovalle )</ContentBio>
                     </LayoutBio>
                     <LayoutBio>
                         <AgeBio>2021</AgeBio>
                         <ContentBio>
                             Titulado de Ingeniero en Informática de la Universidad Tecnológica
-                            INACAP
+                            INACAP ( 4ta Región - La Serena )
                         </ContentBio>
                     </LayoutBio>
                     <LayoutBio>
-                        <AgeBio>2022</AgeBio>
-                        <ContentBio>Puesto administrativo, Hospital Provincial Ovalle</ContentBio>
+                        <AgeBio>1995</AgeBio>
+                        <ContentBio>
+                            Nací y me crié en la ciudad de Ovalle Cuarta Región de Coquimbo, Chile
+                        </ContentBio>
                     </LayoutBio>
                 </Section>
                 <Section padding="0 0 50px 0" flexDirection="column">
@@ -210,8 +212,8 @@ const WebPage = () => {
                     </Titule>
                     <br />
                     <LayoutBio>
-                        <AgeBio>Anime</AgeBio>
-                        <ContentBio>Shigatsu wa kimi no uso ( Your Lie in April )</ContentBio>
+                        <AgeBio>Pelicula</AgeBio>
+                        <ContentBio>Interestelar</ContentBio>
                     </LayoutBio>
                     <LayoutBio>
                         <AgeBio>Grupo Musical</AgeBio>
@@ -222,8 +224,8 @@ const WebPage = () => {
                         <ContentBio>Steve Vai - Stevie Ray - Gary Moore</ContentBio>
                     </LayoutBio>
                     <LayoutBio>
-                        <AgeBio>Youtuber</AgeBio>
-                        <ContentBio>Martin Miller</ContentBio>
+                        <AgeBio>Instrumento Musical</AgeBio>
+                        <ContentBio>Guitarra</ContentBio>
                     </LayoutBio>
                 </Section>
                 <Section padding="0 0 50px 0" flexDirection="column">
