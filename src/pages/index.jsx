@@ -92,6 +92,9 @@ const WebPage = () => {
         border-radius: 10px;
         font-weight: bold;
         cursor: pointer;
+        :hover {
+            background-color: ${(props) => props.theme.color.secondary};
+        }
     `;
     const LayoutBio = styled.div`
         display: flex;

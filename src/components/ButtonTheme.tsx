@@ -12,6 +12,9 @@ const ContainerIcon = styled.div`
     color: ${(props) => props.theme.color.buttonIcon};
     box-shadow: 10px 10px 49px -19px ${(props) => props.theme.color.buttonBg};
     outline: none;
+    :hover {
+            background-color: ${(props) => props.theme.color.secondary};
+        }
 `;
 
 export const ButtonLight = () => {
